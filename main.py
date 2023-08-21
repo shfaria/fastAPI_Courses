@@ -77,5 +77,5 @@ def rate_course(course_id: str, chapter_id: str, rating : int = Query(..., gt = 
         chapter['rating']['count'] += 1
     except KeyError:
         chapter['rating'] = {'total': rating, 'count':1}
-    db.courses.update_one({'_id': ObjectId(course_id)}, {'$set': {'chapters': chapters}})
+    db.physics.update_one({'_id': ObjectId(course_id)}, {'$set': {'chapters': chapters}})
     return chapter
